@@ -4,7 +4,7 @@ import os
 def url_open(url):
     req = urllib.request.Request(url)
     req.add_header('User-Agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36')
-    response = urllib.request.urlopen(url) 
+    response = urllib.request.urlopen(req) 
     html = response.read()
     
     return html
@@ -18,7 +18,8 @@ def get_page(url):
     return html[a:b]
     #print(html[a:b])
 
-'''获取图片的地址如[http://wx2.sinaimg.cn/mw600/0076BSS5ly1g44eng0ohij30jg0t64ds.jpg]
+'''获取图片的地址如[http://wx2.sinaimg.cn/mw600/0076BSS5ly1g44eng0ohij30jg0t64ds.jpg
+]
     返回一个包含这个页面所有图片地址的列表[img_adds]'''
 def find_imgs(url):
     html = url_open(url).decode('utf-8')
